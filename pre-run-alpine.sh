@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mkdir /var/lib/templates
+mkdir -p /var/lib/templates
 
 apk add ruby ruby-json
 
