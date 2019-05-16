@@ -13,7 +13,7 @@ for i in $CONFIG_TEMPLATES; do
     tmpl_="$(echo $i | cut -d':' -f1)"
     file_="$(echo $i | cut -d':' -f2)"
 
-    ruby `dirname $0`/ruby_erb_parser.rb -i ${HOME}/$tmpl_ -o $file_ -p $TEMPLATE_PARAMS
+    ruby `dirname $0`/ruby_erb_super_parser.rb -i ${HOME}/$tmpl_ -o $file_ -p $TEMPLATE_PARAMS
 done
 
 # Usage: ruby_erb_parser [options]
