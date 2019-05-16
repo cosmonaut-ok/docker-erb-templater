@@ -35,7 +35,7 @@ home="/var/lib/templates"
 
 template_file_map = {}
 
-IO.readlines(File.join('.', 'config_templates.csv')).each do |line|
+IO.readlines(File.join(home, 'config_templates.csv')).each do |line|
   kv = line.gsub("\n", "").split(":")
   template_file_map[kv[0]] = kv[1]
 end
@@ -64,7 +64,7 @@ template_file_map.each_pair do |key, value|
   FileUtils.mkdir_p(dirname)
 
   output = File.new(value, 'w')
-  template = File.read(key)
+  template = File.read(File.join(home, key))
   
   renderer = ERB.new(template)
   builder = TemplateBuilder.new(config_data)
